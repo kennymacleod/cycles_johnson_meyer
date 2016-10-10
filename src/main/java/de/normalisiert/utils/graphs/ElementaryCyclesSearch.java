@@ -29,7 +29,7 @@ import java.util.Vector;
  * @version 1.2, 22.03.2009
  *
  */
-public class ElementaryCyclesSearch {
+public class ElementaryCyclesSearch<T> {
 	/** List of cycles */
 	private List cycles = null;
 
@@ -56,7 +56,7 @@ public class ElementaryCyclesSearch {
 	 * build sets of the elementary cycles containing the objects of the original
 	 * graph-representation
 	 */
-	public ElementaryCyclesSearch(boolean[][] matrix, Object[] graphNodes) {
+	public ElementaryCyclesSearch(boolean[][] matrix, T[] graphNodes) {
 		this.graphNodes = graphNodes;
 		this.adjList = AdjacencyList.getAdjacencyList(matrix);
 	}
@@ -67,7 +67,7 @@ public class ElementaryCyclesSearch {
 	 *
 	 * @return List::List::Object with the Lists of the elementary cycles.
 	 */
-	public List getElementaryCycles() {
+	public List<List<T>> getElementaryCycles() {
 		this.cycles = new Vector();
 		this.blocked = new boolean[this.adjList.length];
 		this.B = new Vector[this.adjList.length];
